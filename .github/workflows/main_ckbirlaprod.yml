@@ -41,5 +41,5 @@ jobs:
         with:
           app-name: 'CKBirlaProd'
           slot-name: 'Production'
-          package: published/
+          package: ./
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C83E8ADAADF147BB8EF7DCF67131DEA3 }}
