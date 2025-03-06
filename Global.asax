@@ -21,7 +21,7 @@
             string keyVaultUri = ConfigurationManager.AppSettings["_AzureKeyVaultUri"];
             string _server = ConfigurationManager.AppSettings["_server"];
             string _database = ConfigurationManager.AppSettings["_database"];
-    
+
             string _token = "";
             string connectionString = "";
 
@@ -31,9 +31,10 @@
             // Application["_clientSecret"] = _clientSecret;
 
 
-        
 
-            // Retrieve the secrets When doing Live
+
+
+            //// Retrieve the secrets When doing Live
             string _dbUserName = secretClient.GetSecret("Secret-PRODDB-Username").Value.Value;
             string _dbPassword = secretClient.GetSecret("Secret-PRODDB-Password").Value.Value;
 
