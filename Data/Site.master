@@ -1,0 +1,69 @@
+﻿<%@ Master Language="VB" AutoEventWireup="true" CodeFile="Site.master.vb" Inherits="SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=10,IE=edge,chrome=1">
+    <title>CK Birla Group 360</title>
+
+    <%--<link href="../Images/favicon1.ico" rel="shortcut icon" type="image/x-icon" />--%>
+    <link href="../Content/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../Content/Site.css" rel="stylesheet" type="text/css" />
+
+    <script src="../Scripts/jqueryJS.js" type="text/javascript"></script>
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+    <script src="../Scripts/jquery.nicescroll.min.js"></script>
+    <script src="../Scripts/siteJS.js"></script>
+    <!-- WARNING: Respond.js doesn't work if you view the page via file: -->
+    <!--[if lt IE 9]>
+  <script src="../Scripts/html5shiv.min.js"></script>
+  <script src="../Scripts/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server" ID="ScriptManager1" EnablePageMethods="true">
+            <Services>
+                <asp:ServiceReference Path="~/E360WebService.asmx" />
+            </Services>
+        </asp:ScriptManager>
+
+        <div class="wrapper fixed">
+            <div class="main-header">
+                <div class="container">
+                    <!-- Logo -->
+                    <a href="#" class="logo">
+                        <!-- logo for regular state and mobile devices -->
+                        <asp:Image ID="imgLogo1" runat="server" ImageUrl="~/Images/CKBIRLA_LOGO.svg" title="logo" />
+                    </a>
+                    <!-- Header Navbar: style can be found in header.less -->
+                    <div class="navbar-right">
+                        <span class="logo">
+                            <asp:Image ID="imgLogo2" runat="server" ImageUrl="~/Images/deloitte_black.svg" title="logo" />
+                        </span>
+                        <ul class="user_nav">
+                            <%--<asp:Panel ID="panelLogout" runat="server">--%>
+                                <li><a href="../Login.aspx" class="btn"><span class="fa fa-sign-out"></span></a></li>
+                            <%--</asp:Panel>--%>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="container main-content">
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+                <asp:HiddenField runat="server" ID="hdnantitoken" />
+                <div id="divAntiforgery" runat="server" style="display: none"></div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
