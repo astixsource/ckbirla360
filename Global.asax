@@ -21,8 +21,7 @@
             string keyVaultUri = ConfigurationManager.AppSettings["_AzureKeyVaultUri"];
             string _server = ConfigurationManager.AppSettings["_server"];
             string _database = ConfigurationManager.AppSettings["_database"];
-            string _tenantId = ConfigurationManager.AppSettings["_tenantId"];
-            string _clientId = ConfigurationManager.AppSettings["_clientId"];
+    
             string _token = "";
             string connectionString = "";
 
@@ -31,10 +30,16 @@
             //string _clientSecret = secretClient.GetSecret("DeloitteProdDBConnection").Value.Value;
             // Application["_clientSecret"] = _clientSecret;
 
-            // Retrieve the secrets
+
+        
+
+            // Retrieve the secrets When doing Live
             string _dbUserName = secretClient.GetSecret("Secret-PRODDB-Username").Value.Value;
             string _dbPassword = secretClient.GetSecret("Secret-PRODDB-Password").Value.Value;
-     
+
+
+
+
             // Construct the SQL connection string
             connectionString = "server=" + _server + ";database=" + _database + ";uid=" + _dbUserName + ";pwd=" + _dbPassword + ";connection timeout=0";
 
