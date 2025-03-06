@@ -32,10 +32,9 @@
             // Application["_clientSecret"] = _clientSecret;
 
             // Retrieve the secrets
-            //string _dbUserName = secretClient.GetSecret("Secret-PRODDB-Username").Value.Value;
-            //string _dbPassword = secretClient.GetSecret("Secret-PRODDB-Password").Value.Value;
-            string _dbUserName = "sqladmin";
-            string _dbPassword = "SAFF@31324FASD$";
+            string _dbUserName = secretClient.GetSecret("Secret-PRODDB-Username").Value.Value;
+            string _dbPassword = secretClient.GetSecret("Secret-PRODDB-Password").Value.Value;
+     
             // Construct the SQL connection string
             connectionString = "server=" + _server + ";database=" + _database + ";uid=" + _dbUserName + ";pwd=" + _dbPassword + ";connection timeout=0";
 
